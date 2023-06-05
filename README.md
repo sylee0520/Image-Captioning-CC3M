@@ -6,7 +6,15 @@ docker run --name imgcap -it --gpus all -v /dir:/workspace --ipc host pytorch/py
 pip install -r requirements.txt
 ```
 ## Runs
-
 ```
+# Using BLIP
+python train_blip.py
 
+# Using ViT+GPT2
+python train_vit_gpt2.py
 ```
+## Results
+- Train/Val loss curve
+  - BLIP results
+    <img width="1044" alt="스크린샷 2023-06-06 오전 12 26 25" src="https://github.com/sylee0520/Image-Captioning-CC3M/assets/72010172/c79c894d-2257-4915-96ea-b8d27960f789">
+- Captioning results
