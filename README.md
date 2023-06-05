@@ -18,7 +18,7 @@ Please convert an original annotation file to following format.
   {
     "text": "colorful illustration of girl in the kitchen .",
     "image": "/workspace/ic/DownloadConceptualCaptions/validation/6208.jpg"
-  }
+  },
 ]
 ```
 ## Runs
