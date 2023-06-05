@@ -1,9 +1,26 @@
 # Image-Captioning-CC3M
 This is the repo for CC3M image captioning. I used the [BLIP](https://huggingface.co/Salesforce/blip-image-captioning-base) provided by HuggingFace and the [ViT+GPT2](https://huggingface.co/nlpconnect/vit-gpt2-image-captioning) to perform image captioning. I froze the vision encoder part of both models to prevent it from being updated, and only trained the language decoder part with a LoRA adapter provided by [PEFT](https://github.com/huggingface/peft). As specified in the instruction, I applied the adapter not only to the attention layer but also to the feed-forward layer.
 ## Settings
+- Environment setting
 ```
+git clone https://github.com/sylee0520/Image-Captioning-CC3M.git
 docker run --name imgcap -it --gpus all -v /Image-Captioning-CC3M:/workspace --ipc host pytorch/pytorch:1.12.0-cuda11.3-cudnn8-devel
 pip install -r requirements.txt
+```
+- Dataset setting
+Please convert an original annotation file to following format.
+```
+[
+  {
+    "text": "there is a new bespectacled post up on my blog !",
+    "image": "/workspace/data/validation/3808.jpg"
+  },
+  {
+    "text": "colorful illustration of girl in the kitchen .",
+    "image": "/workspace/ic/DownloadConceptualCaptions/validation/6208.jpg"
+  },
+  ...
+]
 ```
 ## Runs
 ```
