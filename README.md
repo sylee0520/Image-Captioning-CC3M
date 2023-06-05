@@ -1,5 +1,5 @@
 # Image-Captioning-CC3M
-This is the repo for [CC3M](https://ai.google.com/research/ConceptualCaptions/download) image captioning. I used the [BLIP](https://huggingface.co/Salesforce/blip-image-captioning-base) provided by HuggingFace and the [ViT+GPT2](https://huggingface.co/nlpconnect/vit-gpt2-image-captioning) to perform image captioning. I froze the vision encoder part of both models to prevent it from being updated, and only trained the language decoder part with a LoRA adapter provided by [PEFT](https://github.com/huggingface/peft). As specified in the instruction, I applied the adapter not only to the attention layer but also to the feed-forward layer.
+This is the repo for CC3M image captioning. I used the [BLIP](https://huggingface.co/Salesforce/blip-image-captioning-base) provided by HuggingFace and the [ViT+GPT2](https://huggingface.co/nlpconnect/vit-gpt2-image-captioning) to perform image captioning. I froze the vision encoder part of both models to prevent it from being updated, and only trained the language decoder part with a LoRA adapter provided by [PEFT](https://github.com/huggingface/peft). As specified in the instruction, I applied the adapter not only to the attention layer but also to the feed-forward layer.
 ## Settings
 ```
 docker run --name imgcap -it --gpus all -v /Image-Captioning-CC3M:/workspace --ipc host pytorch/pytorch:1.12.0-cuda11.3-cudnn8-devel
@@ -8,10 +8,24 @@ pip install -r requirements.txt
 ## Runs
 ```
 # Using BLIP
-python train_blip.py
+python train_blip.py \
+--train_data_path <train-data-path> \
+--val_data_path <val-data-path> \
+--output_path <output-path> \
+--epochs 100 \
+--batch_size 32 \
+--lr 1e-5 \
+--seed 42
 
 # Using ViT+GPT2
 python train_vit_gpt2.py
+--train_data_path <train-data-path> \
+--val_data_path <val-data-path> \
+--output_path <output-path> \
+--epochs 100 \
+--batch_size 16 \
+--lr 1e-5 \
+--seed 42
 ```
 ## Results
 1. Train/Val loss curve
