@@ -7,8 +7,7 @@ git clone https://github.com/sylee0520/Image-Captioning-CC3M.git
 docker run --name imgcap -it --gpus all -v /Image-Captioning-CC3M:/workspace --ipc host pytorch/pytorch:1.12.0-cuda11.3-cudnn8-devel
 pip install -r requirements.txt
 ```
-2. Dataset setting <br>
-Please convert an original annotation file to following format.
+2. Please convert an original annotation file to following format.
 ```json
 [
   {
