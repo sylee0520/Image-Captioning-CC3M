@@ -14,7 +14,9 @@ python train_blip.py
 python train_vit_gpt2.py
 ```
 ## Results
-- Train/Val loss curve
+1. Train/Val loss curve
   - BLIP results
     <img width="1044" alt="스크린샷 2023-06-06 오전 12 26 25" src="https://github.com/sylee0520/Image-Captioning-CC3M/assets/72010172/c79c894d-2257-4915-96ea-b8d27960f789">
+  - ViT+GPT2 results
+    <img width="1042" alt="스크린샷 2023-06-06 오전 12 28 01" src="https://github.com/sylee0520/Image-Captioning-CC3M/assets/72010172/705a2898-3a7b-4832-9e4f-8e258164cceb">
 - Captioning results
